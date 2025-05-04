@@ -9,7 +9,7 @@
     <link rel="icon" href="fav-icon.avif" type="image/x-icon"/>
     <link rel="stylesheet" href="css/styles.css">
     <link rel="stylesheet" href="/https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <script src="js/main.js"></script>
+    <script src="js/main.js" defer></script>
 </head>
 <body>
 <header class="header">
@@ -18,9 +18,9 @@
 <main class="main">
 <article>
     <h2> Your move</h2>
-    <button>Rock</button>
-    <button>Paper</button>
-    <button>Scissors</button>
+    <button onclick="playGame('rock')">Rock</button>
+    <button onclick="playGame('paper')">Paper</button>
+    <button onclick="playGame('scissors')">Scissors</button>
 </article>
 </main>
 <footer class="footer">
