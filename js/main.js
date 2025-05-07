@@ -3,6 +3,12 @@ let scores = JSON.parse(localStorage.getItem("scores")) || {
   tie: 0,
   lose: 0,
 };
+function setScore(scores) {
+  document.getElementById("win").innerText = scores.win;
+  document.getElementById("tie").innerText = scores.tie;
+  document.getElementById("lose").innerText = scores.lose;
+}
+setScore(scores);
 function playGame(value) {
   let playerOne = value;
   let moves = ["rock", "paper", "scissors"];
@@ -31,13 +37,15 @@ function playGame(value) {
     result = "computer Wins";
   }
   localStorage.setItem("scores", JSON.stringify(scores));
-  alert(
-    `player one has ${playerOne}, computer has ${computerChoice} \n${result}\nwin: ${scores.win}, lose: ${scores.lose}, tie: ${scores.tie}`,
-  );
+  setScore(scores);
+  document.getElementById("result").innerText = result;
+  document.getElementById("moves").innerHTML =
+    `You <img src="../img/${playerOne}.png" alt="${playerOne}" class="result-images">  <img src="../img/${computerChoice}.png" alt="${computerChoice}" class="result-images"> computer`;
 }
 function clearScores() {
   scores.lose = 0;
   scores.tie = 0;
   scores.win = 0;
   localStorage.removeItem("scores");
+  setScore(scores);
 }
